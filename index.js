@@ -187,6 +187,12 @@ var ProjectionTransform = {
         }
         f = f.toLowerCase();
         t = t.toLowerCase();
+        if (f === 'epsg:4326') {
+            f = 'wgs84';
+        }
+        if (t === 'epsg:4326') {
+            t = 'wgs84';
+        }
         if (f === t) {
             return coordinates;
         }
