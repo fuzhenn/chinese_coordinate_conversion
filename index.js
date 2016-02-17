@@ -269,7 +269,7 @@ if (typeof module !== 'undefined' && module.exports) {
 
 if (typeof window !== 'undefined') {
     window['maptalks'] = window['maptalks'] || {};
-    window['maptalks']['ProjectionTransform'] = ProjectionTransform;
+    window['maptalks']['ChnCRSTransform'] = ProjectionTransform;
 }
 
 })();
