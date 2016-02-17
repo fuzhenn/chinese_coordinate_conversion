@@ -121,12 +121,31 @@ var ProjectionTransform = {
 
     /**
      * transform geojson's coordinates
-     * @param  {Object} geoJSON geoJSON object to convert
+     * @param  {Object | Array} source a coordinate [x,y] or a geoJSON object to convert
      * @param  {String | CRS Object} fromCRS    crs converted from
      * @param  {String | CRS Object} toCRS      crs converted to
      * @return {Object} result geoJSON object
      */
-    transform:function(geoJSON, fromCRS, toCRS) {
+    transform:function(source, fromCRS, toCRS) {
+        if (!source) {
+            return null;
+        }
+        if (!fromCRS || !toCRS) {
+            throw new Error('must provide a valid fromCRS and toCRS.');
+        }
+        if (this._isCoord(source)) {
+            return this._transformCoordinate(source, fromCRS, toCRS);
+        } else if (this._isArray(source)) {
+            var result = [];
+            for (var i = 0; i < source.length; i++) {
+                result.push(this.transform(source[i], fromCRS, toCRS));
+            }
+            return result;
+        }
+        return this._transformGeoJSON(source, fromCRS, toCRS);
+    },
+
+    _transformGeoJSON:function(geoJSON, fromCRS, toCRS) {
         if (geoJSON['type'] === 'Feature') {
             var geometry = this.transform(geoJSON['geometry'], fromCRS, toCRS);
             var result = this._extend({}, geoJSON);
@@ -152,19 +171,19 @@ var ProjectionTransform = {
             return result;
         }
         var result = this._extend({}, geoJSON);
-        var coordinates = this.convert(geoJSON['coordinates'], fromCRS, toCRS);
+        var coordinates = this._transformCoordinate(geoJSON['coordinates'], fromCRS, toCRS);
         result['coordinates'] = coordinates;
         return result;
     },
 
-    convert:function(coordinates, fromCRS, toCRS) {
+    _transformCoordinate:function(coordinates, fromCRS, toCRS) {
         var f = fromCRS,
             t = toCRS;
-        if (fromCRS['type'] === 'proj4' && fromCRS['proj']) {
-            f = this._toCRS(fromCRS['proj']);
+        if (fromCRS['type'] === 'proj4') {
+            f = this._toCRS(fromCRS['properties']['proj']);
         }
-        if (toCRS['type'] === 'proj4' && toCRS['proj']) {
-            t = this._toCRS(toCRS['proj']);
+        if (toCRS['type'] === 'proj4') {
+            t = this._toCRS(toCRS['properties']['proj']);
         }
         f = f.toLowerCase();
         t = t.toLowerCase();
@@ -216,10 +235,14 @@ var ProjectionTransform = {
     },
 
     _isCoord:function(coordinate) {
-        if (this._isArray(coordinate) && !this._isArray(coordinate[0])) {
+        if (this._isArray(coordinate) && this._isNumber(coordinate[0]) && this._isNumber(coordinate[1])) {
             return true;
         }
         return false;
+    },
+
+    _isNumber:function(val) {
+        return (typeof val === 'number') && !isNaN(val);
     },
 
     _isArray:function(obj) {
