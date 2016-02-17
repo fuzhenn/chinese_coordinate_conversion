@@ -1,12 +1,13 @@
 {
-  "name": "chinese-coordinate-conversion",
+  "name": "chncrs",
   "version": "0.1.0",
-  "description": "coordinate conversion of various chinese encrypted coordinate systems such as BAIDU, GCJ02 etc.",
+  "description": "coordinate transforming of various chinese encrypted coordinate systems such as BAIDU, GCJ02 etc.",
   "license": "WTFPL",
   "repository": {
     "type": "git",
     "url": "https://github.com/FuZhenn/chinese_coordinate_conversion"
   },
+  "main": "index.js",
   "devDependencies": {
     "expect.js": "^0.3.1",
     "gulp": "^3.9.0",
