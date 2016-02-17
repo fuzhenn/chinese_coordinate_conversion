@@ -8,7 +8,7 @@ An open-source javascript library for coordinate conversion between WGS84 and va
 * WGS84
 
 
-## Usagage
+## Usage
 
 
 ```javascript
