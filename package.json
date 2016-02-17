@@ -1,0 +1,18 @@
+{
+  "name": "chinese-coordinate-conversion",
+  "version": "0.1.0",
+  "description": "coordinate conversion of various chinese encrypted coordinate systems such as BAIDU, GCJ02 etc.",
+  "license": "WTFPL",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FuZhenn/chinese_coordinate_conversion"
+  },
+  "devDependencies": {
+    "expect.js": "^0.3.1",
+    "gulp": "^3.9.0",
+    "gulp-mocha": "^2.2.0",
+    "mocha": "^2.4.5",
+    "should": "^8.2.2"
+  },
+  "dependencies": {}
+}
