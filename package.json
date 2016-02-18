@@ -1,6 +1,6 @@
 {
   "name": "chncrs",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "coordinate transforming of various chinese encrypted coordinate systems such as BAIDU, GCJ02 etc.",
   "license": "WTFPL",
   "repository": {
