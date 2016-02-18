@@ -1,5 +1,5 @@
 (function(){
-
+"use strict";
 //coordinate conversion of various chinese encrypted coordinate systems such as BAIDU, GCJ02 etc
 
 
