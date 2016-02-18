@@ -149,7 +149,7 @@ var ProjectionTransform = {
         if (geoJSON['type'] === 'Feature') {
             var geometry = this.transform(geoJSON['geometry'], fromCRS, toCRS);
             var result = this._extend({}, geoJSON);
-            geoJSON['geometry'] = geometry;
+            result['geometry'] = geometry;
             return result;
         } else if (geoJSON['type'] === 'FeatureCollection') {
             var features = geoJSON['features'];
