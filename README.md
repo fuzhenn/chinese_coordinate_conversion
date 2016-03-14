@@ -9,7 +9,7 @@ Coordinate or [GeoJSON](http://www.geojson.org) trasnforming from WGS84 to vario
 
 ## Definition
 ```javascript
-convertor.**transform**(source, fromCRS, toCRS);
+convertor.transform(source, fromCRS, toCRS);
 ```
 
 * **source** : a coordinate, array of coordinates, a GeoJSON or a array of GeoJSON to transform, possible values:
