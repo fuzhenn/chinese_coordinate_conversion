@@ -1,4 +1,4 @@
-var convertor = require('../index'),
+var convertor = require('../chncrs'),
     expect = require('expect.js');
 describe('ProjectionTransform', function () {
     it('convert coordinates from gcj02 to bd09ll',function() {
