@@ -8,8 +8,9 @@ Coordinate or [GeoJSON](http://www.geojson.org) trasnforming from WGS84 to vario
 * WGS84 : well-known CRS, aka EPSG:4326
 
 ## Definition
-
+```javascript
 convertor.**transform**(source, fromCRS, toCRS);
+```
 
 * **source** : a coordinate, array of coordinates, a GeoJSON or a array of GeoJSON to transform, possible values:
      - a coordinate: [x, y]
