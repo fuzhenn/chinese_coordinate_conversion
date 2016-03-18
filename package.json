@@ -8,12 +8,12 @@
     "url": "https://github.com/FuZhenn/chinese_coordinate_conversion"
   },
   "main": "chncrs.js",
+  "scripts": {
+      "test": "./node_modules/.bin/mocha"
+  },
   "devDependencies": {
     "expect.js": "^0.3.1",
-    "gulp": "^3.9.0",
-    "gulp-mocha": "^2.2.0",
-    "mocha": "^2.4.5",
-    "should": "^8.2.2"
+    "mocha": "^2.4.5"
   },
   "dependencies": {},
   "readmeFilename": "README.md"
