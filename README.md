@@ -1,6 +1,6 @@
 # Chinese Coordinate Transform
 
-[![Circle CI](https://circleci.com/gh/FuZhenn/chinese_coordinate_conversion.svg?style=svg)](https://circleci.com/gh/FuZhenn/chinese_coordinate_conversion)
+[![Circle CI](https://circleci.com/gh/fuzhenn/chinese_coordinate_conversion.svg?style=svg)](https://circleci.com/gh/fuzhenn/chinese_coordinate_conversion)
 
 Coordinate or [GeoJSON](http://www.geojson.org) trasnforming from WGS84 to various encrypted Chinese coordinate systems such as BD09LL, GCJ02 and vice versa.
 
