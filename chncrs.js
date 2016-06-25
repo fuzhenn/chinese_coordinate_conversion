@@ -88,7 +88,17 @@ var GPS = {
         var gcjLat = z * Math.sin(theta);
         return [gcjLon, gcjLat];
     },
+    
+    wgs84_bd09ll : function (wgsLon, wgsLat) {
+        var c = this.wgs84_gcj02(wgsLon, wgsLat);
+        return this.gcj02_bd09ll(c[0], c[1]);
+    },
 
+    bd09ll_wgs84 : function (wgsLon, wgsLat) {
+        var c = this.bd09ll_gcj02(wgsLon, wgsLat);
+        return this.gcj02_wgs84(c[0], c[1]);
+    },
+     
     outOfChina : function (lat, lon) {
         if (lon < 72.004 || lon > 137.8347)
             return true;
